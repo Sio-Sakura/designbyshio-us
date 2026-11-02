@@ -2031,3 +2031,46 @@ p{margin:0}
 .tags.tags-packed .tag-br{display:none} /* first tag group wraps → no forced break (set in main.js) */
 /* Works cube 901–1021px: only the 01–07 numbers move 15px up (the line stays where it was) */
 @media (min-width:901px) and (max-width:1021px){.cw.is-3d .cw-nav{padding-top:3px}}
+/* Home FV ≤600: photo the same height as the About FV photo (4:3 of the content width, max 42svh) */
+@media (max-width:600px){.page-home .hero-media{aspect-ratio:4/3;height:auto;max-height:42svh}}
+/* Home ≤600 (phone) text sizes — Shio 2026-11-01: lead texts 19px, body text in rows/cards 18px */
+@media (max-width:600px){
+  .page-home .hero-sub .jp-v:not(#_):not(#__){font-size:18px}
+  .page-home .hero-sub .lead:not(#_):not(#__){font-size:19px}
+  .page-home .statband .stat .num:not(#_):not(#__){font-size:36px}
+  .page-home .statband .stat .lab:not(#_):not(#__){font-size:14px}
+  .page-home .sec-head .statement:not(#_):not(#__){font-size:19px}
+  .page-home .cta .lead:not(#_):not(#__){font-size:19px}
+  .page-home .pillar p:not(#_):not(#__),
+  .page-home .srow p:not(#_):not(#__),
+  .page-home .hworks .wcard .desc:not(#_):not(#__),
+  .page-home .vs-row .r p:not(#_):not(#__),
+  .page-home .about-copy p:not(#_):not(#__){font-size:18px}
+  .page-home .link:not(#_):not(#__):not(#___){font-size:18px}
+  .page-home .hworks .wcard .meta h3:not(#_):not(#__){font-size:26px}
+  .page-home .hworks .wcard .meta small:not(#_):not(#__){font-size:16px}
+  .page-home .hworks .wcard .tag:not(#_):not(#__){font-size:14px}
+}
+/* Home ≤600: nothing under 14px except photo labels (FV tag, photo captions) */
+@media (max-width:600px){
+  .page-home .swipe-hint:not(#_):not(#__),.page-home .swipe-hint *:not(#_):not(#__){font-size:14px}
+  .page-home .name-line .base:not(#_):not(#__){font-size:14px}
+}
+/* Footer ≤600 (every page): column titles 18px, their links 14px, Japanese line 14px, English intro 18px, policy / terms / copyright 12px */
+@media (max-width:600px){
+  .footer .col h4:not(#_):not(#__){font-size:18px}
+  .footer .col a:not(#_):not(#__){font-size:14px}
+  .footer .jp-line:not(#_):not(#__){font-size:14px}
+  .footer .brand p:not(.jp-line){font-size:18px!important} /* overrides the inline 14px */
+  .footer .legal-block p:not(#_):not(#__),.footer .legal-block span:not(#_):not(#__){font-size:12px}
+}
+/* Home ≤600: "View all work" circle big enough for its text (content was 20px wider than the circle → off-centre) */
+@media (max-width:600px){.hworks .wcard.end{width:max(280px,min(50vw,340px));height:auto;aspect-ratio:1;flex:none}}
+/* What I do rows ≤600: number left of the title, arrow on the title line at the right, text full width below (10px from the box edges) */
+@media (max-width:600px){
+  .srow:not(#_){grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"n h go" "p p p";column-gap:14px;padding-left:10px;padding-right:10px;align-items:center}
+  .srow:not(#_) .n{grid-area:n;align-self:center}
+  .srow:not(#_) .tcol{grid-area:h}
+  .srow:not(#_) p{grid-area:p;margin-top:12px}
+  .srow:not(#_) .go{grid-area:go;position:static;align-self:center}
+}
