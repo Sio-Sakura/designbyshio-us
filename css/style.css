@@ -2219,3 +2219,13 @@ p{margin:0}
   .srow:not(#_):not(#__){padding-left:15px;padding-right:15px}
   .page-home .hworks .h-2:not(#_):not(#__):not(#___):not(#____){font-size:min(38px,calc((100vw - 48px) * .104))}
 }
+/* Home ≤600: 15px more space between the Selected work H2 and the Swipe bar (20 → 35) */
+@media (max-width:600px){.page-home .hworks .swipe-hint:not(#_):not(#__){margin-top:3px}}
+/* Home ≤600: Selected work project names — line spacing 1.25 like the other item titles */
+@media (max-width:600px){.page-home .hworks .wcard .meta h3:not(#_):not(#__):not(#___){line-height:1.25}}
+/* Home ≤600: Why Shio H2 → Swipe bar 35px, same as Selected work (was 42) */
+@media (max-width:600px){.page-home .vs-box .swipe-hint:not(#_):not(#__){margin-top:-7px}}
+/* Home ≤600: About me name line spacing 1.25 (was 1.7) */
+@media (max-width:600px){.page-home .name-line .nm:not(#_):not(#__){line-height:1.25}}
+/* Footer ≤600 (every page): logo block 10px further below the Contact column (32 → 42) */
+@media (max-width:600px){.footer .brand:not(#_):not(#__){margin-top:10px}}
