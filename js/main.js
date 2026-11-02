@@ -614,6 +614,19 @@
     if (innerWidth > 430 && parseFloat(h.style.fontSize) > smooth) h.style.fontSize = smooth.toFixed(2) + 'px'; // ≤430: edge to edge
   };
   fitAbTitle(); addEventListener('resize', fitAbTitle); document.fonts && document.fonts.ready.then(fitAbTitle);
+  // Services "What I can build for you." (phones ≤600): if "you." would sit alone on the last line, break before "for" instead
+  const fixYou = () => {
+    // also "If any of these ring true, the right website can fix it." — never leave one word alone on the last line
+    [...document.querySelectorAll('.page-services h2')].filter(x => /build for you|ring true/.test(x.textContent)).forEach(h => {
+      h.querySelectorAll('br.you-br').forEach(b => b.remove());
+      if (innerWidth > 600) return;
+      const ws = [...h.querySelectorAll('.w')]; if (ws.length < 3) return;
+      const top = e => Math.round(e.getBoundingClientRect().top);
+      const last = ws[ws.length - 1], prev = ws[ws.length - 2];
+      if (top(last) !== top(prev)) { const br = document.createElement('br'); br.className = 'you-br'; prev.before(br); }
+    });
+  };
+  fixYou(); addEventListener('resize', fixYou); document.fonts && document.fonts.ready.then(fixYou);
   fitSideFacts(); addEventListener('resize', fitSideFacts); document.fonts && document.fonts.ready.then(fitSideFacts);
   // "why?" no longer needs nudging: at 601–900 it is pinned to the heading's top-right (CSS)
   const fitWhy = () => { const ww = $('.why-word'); if (ww) ww.style.left = ''; };

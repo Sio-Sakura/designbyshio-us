@@ -2229,3 +2229,18 @@ p{margin:0}
 @media (max-width:600px){.page-home .name-line .nm:not(#_):not(#__){line-height:1.25}}
 /* Footer ≤600 (every page): logo block 10px further below the Contact column (32 → 42) */
 @media (max-width:600px){.footer .brand:not(#_):not(#__){margin-top:10px}}
+/* Services FV H1: the gold italic word (1em + 10px) gets more room inside its clip box so the g's tail and italic overhang are never cut (layout unchanged) */
+.svc-hero-title .w:has(em){padding-bottom:.55em;margin-bottom:-.55em;padding-left:.3em;margin-left:-.3em}
+/* Services ≤600: testimonials — 5px more space above the stars (15 → 20) */
+@media (max-width:600px){.page-services .voice:not(#_):not(#__){padding-top:20px}}
+/* Services ≤600: Sound familiar? check circles 1.2× (22 → 26.4px) */
+@media (max-width:600px){
+  .page-services .pain h3:not(#_):not(#__){grid-template-columns:26.4px 1fr}
+  .page-services .pain h3::before{width:26.4px;height:26.4px;background-size:15.6px auto}
+}
+/* Services ≤600: "If any of these ring true, the right website can fix it." flows naturally (no forced break after "true,"), left-aligned */
+@media (max-width:600px){.page-services .with-puzzle .h-2 br:not(.you-br){display:none}}
+/* ≤600 (every page): photo captions 13px, same as the Samurai Cook caption on Home */
+@media (max-width:600px){.figure .cap:not(#_):not(#__){font-size:13px}}
+/* Services ≤600: "Good fit if…" label 15px (uppercase minimum), the italic text under it 19px */
+@media (max-width:600px){.page-services .fit h4:not(#_):not(#__):not(#___){font-size:15px}.page-services .fit p:not(#_):not(#__):not(#___){font-size:19px}}
