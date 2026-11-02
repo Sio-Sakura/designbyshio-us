@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200">
+<rect width="420" height="200" fill="#0e0e10"/>
+<text x="188" y="140" text-anchor="end" font-family="'Playfair Display', 'Bodoni 72', Didot, Georgia, serif" font-size="80" letter-spacing="10" fill="#efece6">SH</text>
+<rect x="204" y="98" width="12" height="12" transform="rotate(45 210 104)" fill="#7a5f2e"/>
+<text x="232" y="140" text-anchor="start" font-family="'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="78" letter-spacing="11" fill="#c9a86a">IO</text><text x="210" y="52" text-anchor="middle" font-family="'Manrope', 'Inter', Helvetica, Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="6.5" fill="#7a5f2e">DESIGN BY</text>
+</svg>

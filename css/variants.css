@@ -1,0 +1,11 @@
+/* 保存版：My approach 右側「Data-driven design」リスト型（2列×3行・金の点・細い区切り線）。
+   戻すときは style.css の同じ場所（.sec-head:has(.side-facts) 〜 @media）をこのブロックで置き換える。 */
+.sec-head:has(.side-facts){grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:48px}
+.sec-head .side-facts{margin-top:0;align-self:end;justify-self:stretch;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}
+.sec-head .side-facts li{font-family:var(--serif);font-size:clamp(17px,1.35vw,20px);line-height:1.3;color:var(--ink);padding:13px 0 13px 22px;border:0;border-bottom:1px solid rgba(14,14,16,.14);position:relative;text-transform:none;letter-spacing:0;border-radius:0;background:none;box-shadow:none;display:block;text-align:left}
+.sec-head .side-facts li::before{content:"";position:absolute;left:0;top:50%;width:7px;height:7px;border-radius:50%;background:var(--gold);transform:translateY(-50%)}
+.sec-head .side-facts li::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:#8d6f3a;transition:width .5s var(--ease)}
+.sec-head .side-facts li:hover::after{width:100%}
+.sec-head .side-facts li.hl{grid-column:1/-1;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:#8d6f3a;padding:0 0 12px;border:0;border-bottom:1px solid #8d6f3a;background:none;margin-bottom:4px}
+.sec-head .side-facts li.hl::before,.sec-head .side-facts li.hl::after{display:none}
+@media (max-width:900px){.sec-head .side-facts{justify-self:start;width:100%;margin-top:10px}}
