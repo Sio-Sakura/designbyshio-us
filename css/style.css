@@ -2260,4 +2260,4 @@ p{margin:0}
   .page-home .srow:not(#_):not(#__):not(#___){column-gap:29px}
 }
 /* Home ≤600: About me — name → "Based in…" 5px closer (18 → 13), "Based in…" → text 10px closer (22 → 12) */
-@media (max-width:600px){.page-home .name-line:not(#_):not(#__){row-gap:13px}.page-home .about-copy:not(#_):not(#__){margin-top:12px}}
+@media (max-width:600px){.page-home .name-line:not(#_):not(#__){row-gap:8px}.page-home .about-copy:not(#_):not(#__){margin-top:12px}}
