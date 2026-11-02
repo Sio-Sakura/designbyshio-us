@@ -2402,3 +2402,28 @@ p{margin:0}
   .page-services .section:has(.process) .sec-head:not(#_):not(#__){margin-bottom:calc(48px + max(0px, 100vw - 601px) * 3 / 299)}
   .page-services .process:not(#_):not(#__){margin-top:0}
 }
+/* Works 601–900: the * notes under project names 12px (were 11px) */
+@media (min-width:601px) and (max-width:900px){.page-works .witem .wnote:not(#_):not(#__){font-size:12px}}
+/* Works lightbox "Close ×": 14px at every width */
+.page-works .lightbox .bar button:not(#_):not(#__):not(#___),.page-works .lightbox .bar button:not(#_):not(#__):not(#___) i{font-size:14px}
+/* Works lightbox: the × in the circle 16px at every width (circle stays 36px; "Close" stays 14px) */
+.page-works .lightbox .bar button:not(#_):not(#__):not(#___) i:not(#____){font-size:16px}
+/* Contact panel + Works lightbox: the × inside the circle is drawn with two thin lines like the mobile-menu ×
+   (24px lines crossing → about 17×17px), every width. The text "×" stays in the HTML for screen readers but is hidden */
+.contact .close i:not(#_):not(#__),.page-works .lightbox .bar button i:not(#_):not(#__):not(#___):not(#____){position:relative;font-size:0!important;line-height:0}
+.contact .close i::before,.contact .close i::after,
+.page-works .lightbox .bar button i::before,.page-works .lightbox .bar button i::after{content:"";position:absolute;left:50%;top:50%;width:24px;height:1px;background:currentColor;transform:translate(-50%,-50%) rotate(45deg)}
+.contact .close i::after,.page-works .lightbox .bar button i::after{transform:translate(-50%,-50%) rotate(-45deg)}
+/* × inside the circles (Works lightbox, contact panel): 15×15 (lines 21.2px); mobile menu stays 17×17 */
+.page-works .lightbox .bar button i::before,.page-works .lightbox .bar button i::after{width:21.2px}
+.contact .close i::before,.contact .close i::after{width:21.2px}
+/* "Close" labels — contact panel and Works lightbox alike: CLOSE in capitals, wide tracking, 14px at every width */
+.contact .close:not(#_):not(#__):not(#___),
+.page-works .lightbox .bar button:not(#_):not(#__):not(#___):not(#____){font-size:14px;text-transform:uppercase;letter-spacing:.28em}
+/* Works lightbox: project name (top left) 14px at every width, same as CLOSE */
+.page-works .lightbox .bar .t:not(#_):not(#__){font-size:14px}
+/* Works lightbox: at least 15px between project name and CLOSE, every width */
+.page-works .lightbox .bar:not(#_):not(#__){column-gap:15px}
+.page-works .lightbox .bar button:not(#_):not(#__){flex-shrink:0}
+/* Works lightbox: first line of the project name sits on the same line as CLOSE (long names wrap downward) */
+.page-works .lightbox .bar:not(#_):not(#__){align-items:baseline}
