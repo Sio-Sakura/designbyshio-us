@@ -2244,3 +2244,20 @@ p{margin:0}
 @media (max-width:600px){.figure .cap:not(#_):not(#__){font-size:13px}}
 /* Services ≤600: "Good fit if…" label 15px (uppercase minimum), the italic text under it 19px */
 @media (max-width:600px){.page-services .fit h4:not(#_):not(#__):not(#___){font-size:15px}.page-services .fit p:not(#_):not(#__):not(#___){font-size:19px}}
+/* ≤600 (every page): text → arrow 5px tighter in the buttons (12 → 7) */
+@media (max-width:600px){
+  .page-home .hero-ctas .btn:not(#_):not(#__):not(#___),.page-home .cta .btns .btn:not(#_):not(#__):not(#___),
+  :is(.page-services,.page-works,.page-about) .phero .hero-ctas .btn:not(#_):not(#__):not(#___),
+  :is(.page-services,.page-works,.page-about) .cta .btns .btn:not(#_):not(#__):not(#___){gap:7px}
+}
+/* ≤600: contact panel "Send message" button built like the other buttons (centred, text → arrow 7px) */
+@media (max-width:600px){.contact .btn:not(#_):not(#__){display:inline-flex;align-items:center;justify-content:center;gap:7px}}
+/* Mobile menu (≤900): Contact button — text and arrow together in the centre */
+@media (max-width:900px){.mmenu .mmenu-cta:not(#_):not(#__){justify-content:center;gap:7px}}
+/* Home ≤600: What I do — See all services → first row 20px closer; number → title 15px wider (14 → 29) */
+@media (max-width:600px){
+  .page-home .srows:not(#_):not(#__){margin-top:-20px}
+  .page-home .srow:not(#_):not(#__):not(#___){column-gap:29px}
+}
+/* Home ≤600: About me — name → "Based in…" 5px closer (18 → 13), "Based in…" → text 10px closer (22 → 12) */
+@media (max-width:600px){.page-home .name-line:not(#_):not(#__){row-gap:13px}.page-home .about-copy:not(#_):not(#__){margin-top:12px}}
