@@ -2289,3 +2289,11 @@ p{margin:0}
   .page-about .ab-sign-name:not(#_):not(#__):not(#___),
   .page-home .hworks .wcard.end .h-3:not(#_):not(#__):not(#___){font-size:24px}
 }
+/* Services ≤600: puzzle — PROBLEM / DESIGN about 1px larger on screen (19 → 20.4 in the SVG's units);
+   "Data-backed. / Built for you." italic like "Not found. / No leads." (same font and size) */
+@media (max-width:600px){
+  .page-services .puzzle .small:not(#_):not(#__){font-size:20.4px}
+  .page-services .puzzle .pr .lab:not(#_):not(#__){font-style:italic}
+}
+/* Services, every width: puzzle "Data-backed. / Built for you." italic like "Not found. / No leads." */
+.page-services .puzzle .pr .lab:not(#_){font-style:italic}
