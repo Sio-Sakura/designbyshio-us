@@ -2336,8 +2336,8 @@ p{margin:0}
   .page-about .ab-pops .p1:not(#_):not(#__){top:0;margin-top:3.3%}
   .page-about .ab-pops .p2:not(#_):not(#__){top:-24px;margin-top:51%} /* just the corners overlap */
 }
-/* About Career, phones (≤600): steps appear one by one as they scroll in — dot fills and starts pulsing only when its step is on screen */
-@media (max-width:600px){
+/* About Career, ≤900 (vertical timeline): steps appear one by one as they scroll in — dot fills and starts pulsing only when its step is on screen */
+@media (max-width:900px){
   .ctl.by-node .ctl-node:not(#_){opacity:0;transform:translateY(10px);transition-delay:0s}
   .ctl.by-node .ctl-node:not(#_) i{background:var(--ink);box-shadow:none;transition-delay:0s}
   .ctl.by-node .ctl-node:not(#_) i::after{animation:none}
@@ -2350,3 +2350,55 @@ p{margin:0}
 @media (max-width:600px){.page-about .ab-tools.by-tile .tool.pop{animation:tlPop .6s cubic-bezier(.34,1.7,.5,1) forwards}}
 /* About ≤600: Track record "Results in Japan" card — tag text centred in the pill (the U.S. card stays left-aligned) */
 @media (max-width:600px){.page-about .ab-app:has(> h3):nth-child(2) .tag:not(#_):not(#__){text-align:center}}
+/* Home FV photo 601–900: image another 40px up inside its frame (−40 → −80); phones stay at −40 */
+@media (min-width:601px) and (max-width:900px){.hero-media img:not(#_){translate:0 -80px;height:calc(120% + 80px)}}
+/* What I do 601–900: "See all services" 40px closer to the H2 (56 → 16) */
+@media (min-width:601px) and (max-width:900px){.page-home .srv-link:not(#_):not(#__){transform:translateY(-16px)}}
+/* About 601–900: My story H2 → name → place spaced like Home's About me at this size (name line spacing 1.7 like Home's name) */
+@media (min-width:601px) and (max-width:900px){
+  .page-about .ab-sign-name:not(#_):not(#__):not(#___){line-height:1.7}
+  .page-about .ab-sign:not(#_):not(#__):not(#___){margin-top:calc(-8px + (100vw - 601px) * 3 / 299);gap:18px;row-gap:18px}
+}
+/* What I do 601–900: See all services → the line above 01 = 40px */
+@media (min-width:601px) and (max-width:900px){.page-home .srows:not(#_):not(#__){margin-top:-46px}}
+/* What I do 601–900: keep the head's bottom margin at 70px so See all services → line above 01 is exactly 40px at every width (was 45 at 900) */
+@media (min-width:601px) and (max-width:900px){.page-home .section:has(.srows) .sec-head:not(#_):not(#__){margin-bottom:70px}}
+/* 601–900: when the name and the place sit on two lines, 15px between them (Home About me / About My story) */
+@media (min-width:601px) and (max-width:900px){
+  .page-home .name-line:not(#_):not(#__):not(#___){row-gap:calc(9px - (100vw - 601px) * 2 / 299)}
+  .page-about .ab-sign:not(#_):not(#__):not(#___):not(#____){row-gap:calc(9px - (100vw - 601px) * 2 / 299)}
+}
+/* About 601–900: My story — the gold line runs the full width; the quote (70% wide) and the two photos start at the left edge */
+@media (min-width:601px) and (max-width:900px){
+  .page-about .ab-story .sticky:not(#_):not(#__){width:100%;max-width:none}
+  .page-about .ab-quote:not(#_):not(#__):not(#___){padding-left:0;padding-right:20%} /* text block 80% of the width, from the left edge */
+  .page-about .ab-pops:not(#_):not(#__):not(#___){width:min(546px,100%);max-width:none;margin-left:0;margin-right:auto} /* photos 1.3× (420 → 546), from the left edge */
+}
+/* About 601–900: "Massachusetts/Rhode Island, USA" → gold line 35px (same as line → text); Track record United States / Japan 13px */
+@media (min-width:601px) and (max-width:900px){
+  .page-about .sec-head:has(.ab-sign):not(#_):not(#__):not(#___){margin-bottom:27px}
+  .page-about .ab-app .k:not(#_):not(#__){font-size:13px}
+}
+/* About 601–900: quote → photos 40px, photos → text 40px (visible edges) */
+@media (min-width:601px) and (max-width:900px){
+  .page-about .ab-pops:not(#_):not(#__):not(#___):not(#____){margin-top:42px}
+  .page-about .ab-story:not(#_):not(#__){row-gap:calc(8px - (100vw - 601px) * 2 / 299)}
+}
+/* About ≤900: FV photo → "— ABOUT" 10px more (32 → 42); everything below moves down with it */
+@media (max-width:900px){.page-about .ab-hero-text:not(#_):not(#__){margin-top:10px}}
+/* About ≤600: My story gold line runs the full content width (the column was capped at 420px); text and photos keep their 420px width */
+@media (max-width:600px){
+  .page-about .ab-story .sticky:not(#_):not(#__){width:100%;max-width:none}
+  .page-about .ab-quote:not(#_):not(#__):not(#___){padding-right:max(0px,calc(100% - 420px))}
+  .page-about .ab-pops:not(#_):not(#__):not(#___){max-width:420px}
+}
+/* About ≤600: the photo box sizes from its own width (it can now be narrower than the full-width column); photos → text 40px */
+@media (max-width:600px){
+  .page-about .ab-pops:not(#_):not(#__):not(#___):not(#____){height:auto;padding-bottom:0;aspect-ratio:100/98.5}
+  .page-about .ab-story:not(#_):not(#__){row-gap:calc(22px + (min(420px, 100vw - 48px) - 272px) * 5 / 148)}
+}
+/* Services ≤900: "Five steps, one point of contact." → the step dots 40px (visible text → dot) */
+@media (max-width:900px){
+  .page-services .section:has(.process) .sec-head:not(#_):not(#__){margin-bottom:calc(48px + max(0px, 100vw - 601px) * 3 / 299)}
+  .page-services .process:not(#_):not(#__){margin-top:0}
+}

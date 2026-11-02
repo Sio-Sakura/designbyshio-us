@@ -725,7 +725,7 @@
     if (reduce) ctl.classList.add('on');
     else ScrollTrigger.create({ trigger: ctl, start: 'top 80%', once: true, onEnter: () => ctl.classList.add('on') });
     // phones (≤600): each step's dot and text appear when that step scrolls into view (not all at once)
-    if (!reduce && innerWidth <= 600) {
+    if (!reduce && innerWidth <= 900) { // phones and iPad (vertical timeline)
       ctl.classList.add('by-node');
       $$('.ctl-node', ctl).forEach(n => ScrollTrigger.create({ trigger: n, start: 'top 80%', once: true, onEnter: () => n.classList.add('on') }));
     }
