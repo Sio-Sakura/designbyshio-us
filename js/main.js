@@ -789,15 +789,6 @@
   });
   fit(); addEventListener('resize', fit); document.fonts && document.fonts.ready.then(fit);
 })();
-/* TEMP: viewport size badge (bottom-left) — remove before launch */
-(() => {
-  const b = document.createElement('div');
-  b.id = 'vp-size';
-  b.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:9999;padding:6px 10px;border-radius:6px;background:rgba(14,14,16,.85);color:#c9a86a;font:600 13px/1 Manrope,system-ui,sans-serif;letter-spacing:.04em;pointer-events:none;border:1px solid rgba(201,168,106,.5)';
-  const up = () => { b.textContent = `${innerWidth} × ${innerHeight}`; };
-  up(); addEventListener('resize', up);
-  document.body.appendChild(b);
-})();
 /* Selected work: give every title block and description the same height so text and tag rows start on one line */
 (() => {
   const groups = ['.meta', '.desc'].map(s => [...document.querySelectorAll('.hworks .wcard ' + s)]).filter(g => g.length); if (!groups.length) return;
