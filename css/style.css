@@ -2135,7 +2135,7 @@ p{margin:0}
   .page-home .statband .stat:nth-child(even):not(#_):not(#__){padding-left:20px;padding-right:0}
 }
 /* Home ≤600: stat captions fit their column (long words like MASSACHUSETTS) — tighter tracking, hyphenate only if still too long (≈320px) */
-@media (max-width:600px){.page-home .statband .stat .lab:not(#_):not(#__){letter-spacing:.08em;hyphens:auto;-webkit-hyphens:auto}}
+@media (max-width:600px){.page-home .statband .stat .lab:not(#_):not(#__){letter-spacing:.08em;hyphens:manual;-webkit-hyphens:manual}} /* no hyphen breaks (APPEAR-ING) */
 /* Home ≤600: My approach photo caption ("Samurai Cook · on Google 2 hrs after launch") 13px */
 @media (max-width:600px){.page-home .split .media-stack .cap:not(#_):not(#__){font-size:13px}}
 /* Home ≤600: My approach items — tighter line spacing (was 1.7 for both) */
@@ -2208,3 +2208,9 @@ p{margin:0}
   .statband .stat:nth-child(2)::after{left:0;right:-100vw}
 }
 @media (max-width:600px){.statband{--sb-g:24px}}
+/* Home ≤600: FV text uses the full content width (the iPad 90% rule had been widened to ≤900) */
+@media (max-width:600px){.page-home .hero-sub .lead:not(#_):not(#__){width:100%}}
+/* Home ≤600: My approach items — box side padding 5px narrower each side (36 → 31), text 5px further below the icon circle */
+@media (max-width:600px){.page-home .pillar:not(#_):not(#__){padding-left:31px;padding-right:31px}.page-home .pillar p:not(#_):not(#__){margin-top:5px}}
+/* Home ≤600: "See all services" 20px closer to the H2 */
+@media (max-width:600px){.page-home .srv-link:not(#_):not(#__){transform:translateY(4px)}}
