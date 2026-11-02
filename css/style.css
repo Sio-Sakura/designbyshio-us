@@ -2230,7 +2230,7 @@ p{margin:0}
 /* Footer ≤600 (every page): logo block 10px further below the Contact column (32 → 42) */
 @media (max-width:600px){.footer .brand:not(#_):not(#__){margin-top:10px}}
 /* Services FV H1: the gold italic word (1em + 10px) gets more room inside its clip box so the g's tail and italic overhang are never cut (layout unchanged) */
-.svc-hero-title .w:has(em){padding-bottom:.55em;margin-bottom:-.55em;padding-left:.3em;margin-left:-.3em}
+:is(.page-services,.page-works,.page-about) .svc-hero-title .w:has(em):not(#_){padding-bottom:.55em;margin-bottom:-.55em;padding-left:.3em;margin-left:-.3em} /* beats .page-* .svc-hero-title .w */
 /* Services ≤600: testimonials — 5px more space above the stars (15 → 20) */
 @media (max-width:600px){.page-services .voice:not(#_):not(#__){padding-top:20px}}
 /* Services ≤600: Sound familiar? check circles 1.2× (22 → 26.4px) */
@@ -2261,3 +2261,31 @@ p{margin:0}
 }
 /* Home ≤600: About me — name → "Based in…" 5px closer (18 → 13), "Based in…" → text 10px closer (22 → 12) */
 @media (max-width:600px){.page-home .name-line:not(#_):not(#__){row-gap:8px}.page-home .about-copy:not(#_):not(#__){margin-top:12px}}
+/* ≤600 (every page): the button label itself sits in the centre — the arrow (18px + 7px gap) hangs on its right */
+@media (max-width:600px){
+  .page-home .hero-ctas .btn:has(svg):not(#_):not(#__):not(#___):not(#____),
+  .page-home .cta .btns .btn:has(svg):not(#_):not(#__):not(#___):not(#____),
+  :is(.page-services,.page-works,.page-about) .cta .btns .btn:has(svg):not(#_):not(#__):not(#___):not(#____){padding-left:25px;padding-right:0}
+  /* fixed-width buttons 20px wider so the arrow keeps ~20px from the rounded end */
+  .page-home .hero-ctas .btn:nth-child(1):not(#_):not(#__):not(#___):not(#____){width:271px}
+  .page-home .hero-ctas .btn:nth-child(2):not(#_):not(#__):not(#___):not(#____){width:242px}
+  .cta .btns .btn:nth-child(1):has(svg):not(#_):not(#__):not(#___):not(#____){width:271px}
+  :is(.page-services,.page-works,.page-about) .phero .hero-ctas .btn:not(#_):not(#__):not(#___):not(#____){padding-left:45px;padding-right:20px}
+  .contact .btn:has(svg):not(#_):not(#__):not(#___){padding-left:calc(var(--btn-px,34px) + 25px);padding-right:var(--btn-px,34px)}
+}
+/* Services ≤600: Sound familiar? check circles 1.5× (22 → 33px); How it works titles 24px */
+@media (max-width:600px){
+  .page-services .pain h3:not(#_):not(#__):not(#___){grid-template-columns:33px 1fr}
+  .page-services .pain h3::before{width:33px!important;height:33px!important;background-size:19.5px auto!important}
+  .page-services .step h3:not(#_):not(#__):not(#___){font-size:24px}
+}
+/* ≤600 (every page): smaller title group 23 → 24px (the 26px group unchanged) */
+@media (max-width:600px){
+  .page-about .ctl-node h3:not(#_):not(#__):not(#___),
+  .page-services .voice .who b:not(#_):not(#__):not(#___),
+  .page-home .vs-row .r h3:not(#_):not(#__):not(#___),
+  .page-home .card3d .face:not(#_):not(#__):not(#___),
+  .page-home .name-line .nm:not(#_):not(#__):not(#___),
+  .page-about .ab-sign-name:not(#_):not(#__):not(#___),
+  .page-home .hworks .wcard.end .h-3:not(#_):not(#__):not(#___){font-size:24px}
+}
