@@ -2074,3 +2074,52 @@ p{margin:0}
   .srow:not(#_) p{grid-area:p;margin-top:12px}
   .srow:not(#_) .go{grid-area:go;position:static;align-self:center}
 }
+/* Services / Works / About / Contact ≤600 (phone) — same rule as Home: lead texts 19px, body text 18px,
+   title-type headings 26px, secondary titles 23px, nothing under 14px except photo labels. H1 / H2 keep their own rules */
+@media (max-width:600px){
+  :is(.page-services,.page-works,.page-about) .phero .lead:not(#_):not(#__),
+  :is(.page-services,.page-works,.page-about) .cta .lead:not(#_):not(#__){font-size:19px}
+  /* Services */
+  .page-services .voice blockquote:not(#_):not(#__){font-size:18px}
+  .page-services .voice .who b:not(#_):not(#__){font-size:23px}
+  .page-services .voice .who small:not(#_):not(#__){font-size:14px}
+  .page-services .pain h3:not(#_):not(#__){font-size:26px}
+  .page-services .pain p:not(#_):not(#__),
+  .page-services .txt .body:not(#_):not(#__),
+  .page-services .list li:not(#_):not(#__),
+  .page-services .fit p:not(#_):not(#__),
+  .page-services .step p:not(#_):not(#__){font-size:18px}
+  .page-services .fit h4:not(#_):not(#__){font-size:14px}
+  .page-services .step h3:not(#_):not(#__){font-size:23px}
+  /* Works */
+  .page-works .witem .head .k:not(#_):not(#__),
+  .page-works .witem .tag:not(#_):not(#__),
+  .page-works .witem .result small:not(#_):not(#__),
+  .page-works .witem .wnote:not(#_):not(#__),
+  .page-works .lightbox .bar button:not(#_):not(#__){font-size:14px}
+  .page-works .witem h3:not(#_):not(#__){font-size:26px}
+  .page-works .witem p:not(#_):not(#__){font-size:18px}
+  /* About */
+  .page-about .statband .stat .num:not(#_):not(#__){font-size:36px}
+  .page-about .statband .stat .lab:not(#_):not(#__),
+  .page-about .ab-sign-place:not(#_):not(#__),
+  .page-about .ctl-node .when:not(#_):not(#__),
+  .page-about .tool .nm:not(#_):not(#__),
+  .page-about .ab-app .k:not(#_):not(#__),
+  .page-about .ab-app .tag:not(#_):not(#__){font-size:14px}
+  .page-about .ab-sign-name:not(#_):not(#__),
+  .page-about .ctl-node h3:not(#_):not(#__){font-size:23px}
+  .page-about .ab-quote:not(#_):not(#__){font-size:26px}
+  .page-about .text p:not(#_):not(#__),
+  .page-about .ctl-node p:not(#_):not(#__),
+  .page-about .ab-app p:not(#_):not(#__){font-size:18px}
+  .page-about .link:not(#_):not(#__):not(#___){font-size:18px}
+  /* Contact panel (every page) */
+  .contact .close:not(#_):not(#__),
+  .contact .info dt:not(#_):not(#__),
+  .contact .field label:not(#_):not(#__),
+  .contact .note:not(#_):not(#__){font-size:14px}
+  .contact .pane .lead:not(#_):not(#__){font-size:19px}
+  .contact .info dd:not(#_):not(#__),.contact .info dd a:not(#_):not(#__){font-size:18px}
+}
+@media (max-width:600px){.contact .req:not(#_):not(#__){font-size:14px}} /* required-field asterisk */
