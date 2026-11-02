@@ -174,7 +174,7 @@ p{margin:0}
 .mmenu-cta:hover b{transform:translateX(4px)}
 .menu-open .mmenu-links a,.menu-open .mmenu-cta{opacity:1;transform:none;transition:opacity .5s var(--ease) .2s,transform .6s var(--ease) .2s,color .3s,background .3s}
 .menu-open .mmenu-links a:nth-child(2){transition-delay:.26s,.26s,0s,0s}.menu-open .mmenu-links a:nth-child(3){transition-delay:.32s,.32s,0s,0s}.menu-open .mmenu-links a:nth-child(4){transition-delay:.38s,.38s,0s,0s}.menu-open .mmenu-cta{transition-delay:.44s,.44s,0s,0s}
-.mmenu .foot{margin-top:auto;padding-top:32px;font-size:12px;line-height:1.9;letter-spacing:.08em;color:var(--fg-dim)}
+.mmenu .foot{margin-top:auto;padding-top:32px;font-size:14px;line-height:1.9;letter-spacing:.08em;color:var(--fg-dim)}
 
 /* ---------- Buttons ---------- */
 .btn{
@@ -2036,9 +2036,9 @@ p{margin:0}
 /* Home ≤600 (phone) text sizes — Shio 2026-11-01: lead texts 19px, body text in rows/cards 18px */
 @media (max-width:600px){
   .page-home .hero-sub .jp-v:not(#_):not(#__){font-size:18px}
-  .page-home .hero-sub .lead:not(#_):not(#__){font-size:19px}
+  .page-home .hero-sub .lead:not(#_):not(#__){font-size:18px}
   .page-home .statband .stat .num:not(#_):not(#__){font-size:36px}
-  .page-home .statband .stat .lab:not(#_):not(#__){font-size:14px}
+  .page-home .statband .stat .lab:not(#_):not(#__){font-size:13px}
   .page-home .sec-head .statement:not(#_):not(#__){font-size:19px}
   .page-home .cta .lead:not(#_):not(#__){font-size:19px}
   .page-home .pillar p:not(#_):not(#__),
@@ -2056,13 +2056,13 @@ p{margin:0}
   .page-home .swipe-hint:not(#_):not(#__),.page-home .swipe-hint *:not(#_):not(#__){font-size:14px}
   .page-home .name-line .base:not(#_):not(#__){font-size:14px}
 }
-/* Footer ≤600 (every page): column titles 18px, their links 14px, Japanese line 14px, English intro 18px, policy / terms / copyright 12px */
+/* Footer ≤600 (every page): column titles 16px, their links 16px, Japanese line 14px, English intro 16px, policy / terms / copyright 13px */
 @media (max-width:600px){
-  .footer .col h4:not(#_):not(#__){font-size:18px}
-  .footer .col a:not(#_):not(#__){font-size:14px}
+  .footer .col h4:not(#_):not(#__){font-size:16px}
+  .footer .col a:not(#_):not(#__){font-size:16px}
   .footer .jp-line:not(#_):not(#__){font-size:14px}
-  .footer .brand p:not(.jp-line){font-size:18px!important} /* overrides the inline 14px */
-  .footer .legal-block p:not(#_):not(#__),.footer .legal-block span:not(#_):not(#__){font-size:12px}
+  .footer .brand p:not(.jp-line){font-size:16px!important} /* overrides the inline 14px */
+  .footer .legal-block p:not(#_):not(#__),.footer .legal-block span:not(#_):not(#__){font-size:13px}
 }
 /* Home ≤600: "View all work" circle big enough for its text (content was 20px wider than the circle → off-centre) */
 @media (max-width:600px){.hworks .wcard.end{width:max(280px,min(50vw,340px));height:auto;aspect-ratio:1;flex:none}}
@@ -2123,3 +2123,88 @@ p{margin:0}
   .contact .info dd:not(#_):not(#__),.contact .info dd a:not(#_):not(#__){font-size:18px}
 }
 @media (max-width:600px){.contact .req:not(#_):not(#__){font-size:14px}} /* required-field asterisk */
+/* Home ≤600: FV buttons — text 16px, button size unchanged (251×67 / 222×67) */
+@media (max-width:600px){
+  .page-home .hero-ctas .btn:not(#_):not(#__){display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:16px;padding:0;height:67px}
+  .page-home .hero-ctas .btn:nth-child(1):not(#_):not(#__){width:251px}
+  .page-home .hero-ctas .btn:nth-child(2):not(#_):not(#__){width:222px}
+}
+/* Home ≤600: stat band — numbers start 24px from the screen edge (left column) and end 24px from it (right column) */
+@media (max-width:600px){
+  .page-home .statband .stat:nth-child(odd):not(#_):not(#__){padding-left:0;padding-right:12px}
+  .page-home .statband .stat:nth-child(even):not(#_):not(#__){padding-left:20px;padding-right:0}
+}
+/* Home ≤600: stat captions fit their column (long words like MASSACHUSETTS) — tighter tracking, hyphenate only if still too long (≈320px) */
+@media (max-width:600px){.page-home .statband .stat .lab:not(#_):not(#__){letter-spacing:.08em;hyphens:auto;-webkit-hyphens:auto}}
+/* Home ≤600: My approach photo caption ("Samurai Cook · on Google 2 hrs after launch") 13px */
+@media (max-width:600px){.page-home .split .media-stack .cap:not(#_):not(#__){font-size:13px}}
+/* Home ≤600: My approach items — tighter line spacing (was 1.7 for both) */
+@media (max-width:600px){.page-home .pillar h3:not(#_):not(#__){line-height:1.25}.page-home .pillar p:not(#_):not(#__){line-height:1.55}}
+/* Home ≤600: What I do rows match My approach items (title 26px / 1.25, text 18px / 1.55); Why Shio table text 18px / 1.55;
+   Selected work H2 the same size as the other H2s (38px); Selected work tags 13px */
+@media (max-width:600px){
+  .page-home .srow h3:not(#_):not(#__){font-size:26px;line-height:1.25}
+  .page-home .srow p:not(#_):not(#__),
+  .page-home .vs-row .r p:not(#_):not(#__){font-size:18px;line-height:1.55}
+  .page-home .hworks .h-2:not(#_):not(#__):not(#___){font-size:38px;white-space:normal}
+  .page-home .hworks .wcard .tag:not(#_):not(#__):not(#___){font-size:13px}
+}
+/* Home ≤600: Let's talk buttons — same 16px text as the FV buttons */
+@media (max-width:600px){
+  .page-home .cta .btns .btn:not(#_):not(#__){display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:16px;padding:0 14px;height:67px;white-space:nowrap}
+  .page-home .cta .btns .btn:nth-child(1):not(#_):not(#__){width:251px}
+  .page-home .cta .btns .btn:nth-child(2):not(#_):not(#__){width:min(317px,100%)}
+}
+@media (max-width:360px){.page-home .cta .btns .btn:nth-child(2):not(#_):not(#__){letter-spacing:.1em;padding:0 8px}} /* email still fits on very small phones */
+/* Home ≤600 line spacing rule — text inside items / cards: 1.55; normal paragraphs (FV text, the My approach statement,
+   About me body, Let's talk text): 30.5px */
+@media (max-width:600px){
+  .page-home .pillar p:not(#_):not(#__),.page-home .srow p:not(#_):not(#__),
+  .page-home .hworks .wcard .desc:not(#_):not(#__),.page-home .vs-row .r p:not(#_):not(#__){line-height:1.55}
+  .page-home .hero-sub .lead:not(#_):not(#__),.page-home .sec-head .statement:not(#_):not(#__),
+  .page-home .about-copy p:not(#_):not(#__),.page-home .cta .lead:not(#_):not(#__){line-height:30.5px}
+}
+/* Services / Works / About / Contact ≤600 — same rules as Home:
+   H2 38px · FV text 18px · normal paragraphs line spacing 30.5px · text inside items / cards 1.55 · tags 13px · button text 16px */
+@media (max-width:600px){
+  :is(.page-services,.page-works,.page-about) section h2:not(#_):not(#__):not(#___){font-size:38px}
+  :is(.page-services,.page-works,.page-about) .phero .lead:not(#_):not(#__):not(#___){font-size:18px;line-height:30.5px}
+  :is(.page-services,.page-works,.page-about) .cta .lead:not(#_):not(#__):not(#___),
+  .page-services .sec-head .statement:not(#_):not(#__):not(#___),
+  .page-about .text p:not(#_):not(#__):not(#___),
+  .contact .pane .lead:not(#_):not(#__):not(#___){line-height:30.5px}
+  .page-services .voice blockquote:not(#_):not(#__):not(#___),
+  .page-services .pain p:not(#_):not(#__):not(#___),
+  .page-services .txt .body:not(#_):not(#__):not(#___),
+  .page-services .list li:not(#_):not(#__):not(#___),
+  .page-services .fit p:not(#_):not(#__):not(#___),
+  .page-services .step p:not(#_):not(#__):not(#___),
+  .page-works .witem p:not(#_):not(#__):not(#___),
+  .page-about .ctl-node p:not(#_):not(#__):not(#___),
+  .page-about .ab-app p:not(#_):not(#__):not(#___){line-height:1.55}
+  :is(.page-works,.page-about) .tag:not(#_):not(#__):not(#___){font-size:13px}
+  :is(.page-services,.page-works,.page-about) .phero .hero-ctas .btn:not(#_):not(#__),
+  :is(.page-services,.page-works,.page-about) .cta .btns .btn:not(#_):not(#__),
+  .contact .btn:not(#_):not(#__){font-size:16px}
+}
+/* Sub-pages ≤600: buttons built like Home's — 67px tall, text centred, never wrapping; Let's talk buttons the same widths as Home */
+@media (max-width:600px){
+  :is(.page-services,.page-works,.page-about) .phero .hero-ctas .btn:not(#_):not(#__),
+  :is(.page-services,.page-works,.page-about) .cta .btns .btn:not(#_):not(#__){display:inline-flex;align-items:center;justify-content:center;gap:12px;height:67px;padding:0 20px;white-space:nowrap}
+  :is(.page-services,.page-works,.page-about) .cta .btns .btn:nth-child(1):not(#_):not(#__){width:251px;padding:0 14px}
+  :is(.page-services,.page-works,.page-about) .cta .btns .btn:nth-child(2):not(#_):not(#__){width:min(317px,100%);padding:0 14px}
+}
+@media (max-width:360px){:is(.page-services,.page-works,.page-about) .cta .btns .btn:nth-child(2):not(#_):not(#__){letter-spacing:.1em;padding:0 8px}}
+/* Stat band ≤900 — Home and About identical: 2×2; left column text starts at the side padding (iPad 40 / phone 24),
+   right column text starts the same distance from the middle line; middle horizontal line runs edge to edge */
+@media (max-width:900px){
+  .statband{--sb-g:40px;overflow-x:clip}
+  .statband .row:not(#_):not(#__){grid-template-columns:repeat(2,minmax(0,1fr))}
+  .statband .stat:nth-child(odd):not(#_):not(#__):not(#___){padding-left:0;padding-right:var(--sb-g);border-right:1px solid rgba(239,236,230,.3)}
+  .statband .stat:nth-child(even):not(#_):not(#__):not(#___){padding-left:var(--sb-g);padding-right:0;border-right:0}
+  .statband .stat:nth-child(-n+2):not(#_):not(#__){position:relative;border-bottom:1px solid transparent}
+  .statband .stat:nth-child(1)::after,.statband .stat:nth-child(2)::after{content:"";position:absolute;bottom:-1px;height:1px;background:rgba(239,236,230,.3);pointer-events:none}
+  .statband .stat:nth-child(1)::after{left:-100vw;right:0}
+  .statband .stat:nth-child(2)::after{left:0;right:-100vw}
+}
+@media (max-width:600px){.statband{--sb-g:24px}}

@@ -286,7 +286,7 @@
   $$('.srow[data-href]').forEach(r => r.addEventListener('click', () => { const a = document.createElement('a'); a.href = r.dataset.href; document.body.appendChild(a); a.click(); a.remove(); }));
 
   /* ---------- Approach rows: draw the highlight only when that row scrolls into view ---------- */
-  const hlIo = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('hl-in'); hlIo.unobserve(e.target); } }), { threshold: .6 });
+  const hlIo = new IntersectionObserver(es => es.forEach(e => { const vis = e.intersectionRect.height / (e.boundingClientRect.height || 1); /* vertical share only: ≤900 the Why Shio table is wider than the screen (swipe), so the area ratio never reaches 60% */ if (e.isIntersecting && vis >= .6) { e.target.classList.add('hl-in'); hlIo.unobserve(e.target); } }), { threshold: [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1] });
   $$('.pillar, .vs-row, .ab-story .text p').forEach(p => hlIo.observe(p));
   const vh = $('.vs-head'); if (vh) { new IntersectionObserver(es => es.forEach(e => { const vis = e.intersectionRect.height / (e.boundingClientRect.height || 1); /* vertical share only: ≤900 the table is wider than the screen (swipe) */ if (e.isIntersecting && vis >= .8) vh.classList.add('pop'); vh.classList.toggle('off', !e.isIntersecting); }), { threshold: [0, .05, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1] }).observe(vh); }
 
