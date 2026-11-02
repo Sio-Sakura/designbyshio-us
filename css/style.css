@@ -1740,7 +1740,7 @@ p{margin:0}
   .page-services .flipband{padding:70px 0 0}
 }
 @media (max-width:600px){
-  :root{--sy:clamp(48px,calc(48px + (100vw - 360px) * .05),60px)} /* phone section spacing: 48px at 360 → 60px at 600 */
+  :root{--sy:clamp(60px,calc(60px + (100vw - 402px) * 10 / 198),70px)} /* phone section spacing: 60px up to 402 → 70px at 600 (meets iPad's 70) */
   .section{padding-block:var(--sy)}
   .hero{padding-bottom:var(--sy)}
   .hworks{padding:var(--sy) 0 41px} /* tags → Design/Build cards: 40px (the flip band overlaps 1px) */
@@ -2279,16 +2279,6 @@ p{margin:0}
   .page-services .pain h3::before{width:33px!important;height:33px!important;background-size:19.5px auto!important}
   .page-services .step h3:not(#_):not(#__):not(#___){font-size:24px}
 }
-/* ≤600 (every page): smaller title group 23 → 24px (the 26px group unchanged) */
-@media (max-width:600px){
-  .page-about .ctl-node h3:not(#_):not(#__):not(#___),
-  .page-services .voice .who b:not(#_):not(#__):not(#___),
-  .page-home .vs-row .r h3:not(#_):not(#__):not(#___),
-  .page-home .card3d .face:not(#_):not(#__):not(#___),
-  .page-home .name-line .nm:not(#_):not(#__):not(#___),
-  .page-about .ab-sign-name:not(#_):not(#__):not(#___),
-  .page-home .hworks .wcard.end .h-3:not(#_):not(#__):not(#___){font-size:24px}
-}
 /* Services ≤600: puzzle — PROBLEM / DESIGN about 1px larger on screen (19 → 20.4 in the SVG's units);
    "Data-backed. / Built for you." italic like "Not found. / No leads." (same font and size) */
 @media (max-width:600px){
@@ -2297,3 +2287,23 @@ p{margin:0}
 }
 /* Services, every width: puzzle "Data-backed. / Built for you." italic like "Not found. / No leads." */
 .page-services .puzzle .pr .lab:not(#_){font-style:italic}
+/* Phone section spacing, small screens: 50px up to 360 → 60px at 402 (then 60 → 70 at 600, set above) */
+@media (max-width:402px){:root{--sy:clamp(50px,calc(50px + (100vw - 360px) * 10 / 42),60px)}}
+/* ≤600 (every page): button label 7px left of centre (text → arrow 14px); the arrow stays where it was (taken out of the flow and pinned to the right) */
+@media (max-width:600px){
+  :is(.hero-ctas,.cta .btns,.contact) .btn:has(svg):not(#_):not(#__):not(#___):not(#____):not(#_____){position:relative}
+  :is(.hero-ctas,.cta .btns,.contact) .btn:has(svg):not(#_):not(#__):not(#___):not(#____):not(#_____) svg{position:absolute;top:50%;margin-top:-9px}
+  /* fixed-width buttons (Home FV, Let's talk): label 10px left of centre, arrow 20px from the end */
+  .page-home .hero-ctas .btn:has(svg):not(#_):not(#__):not(#___):not(#____):not(#_____),
+  .cta .btns .btn:has(svg):not(#_):not(#__):not(#___):not(#____):not(#_____){padding-left:0;padding-right:14px}
+  .page-home .hero-ctas .btn:has(svg):not(#_):not(#__):not(#___):not(#____):not(#_____) svg,
+  .cta .btns .btn:has(svg):not(#_):not(#__):not(#___):not(#____):not(#_____) svg{right:20px}
+  /* sub-page FV buttons (width from the label): same width as before */
+  :is(.page-services,.page-works,.page-about) .phero .hero-ctas .btn:has(svg):not(#_):not(#__):not(#___):not(#____):not(#_____){padding-left:38px;padding-right:52px}
+  :is(.page-services,.page-works,.page-about) .phero .hero-ctas .btn:has(svg):not(#_):not(#__):not(#___):not(#____):not(#_____) svg{right:20px}
+  /* contact Send message */
+  .contact .btn:has(svg):not(#_):not(#__):not(#___):not(#____):not(#_____){padding-left:52px;padding-right:66px}
+  .contact .btn:has(svg):not(#_):not(#__):not(#___):not(#____):not(#_____) svg{right:34px}
+}
+/* Works ≤600: filter buttons → line above 01 20px closer (64 → 44) */
+@media (max-width:600px){.page-works .filters:not(#_):not(#__){margin-bottom:44px}}

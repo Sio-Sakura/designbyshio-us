@@ -152,7 +152,10 @@
     track.innerHTML += track.innerHTML;
     const rtl = m.dataset.dir === 'rtl';
     const tween = gsap.fromTo(track, { xPercent: rtl ? -50 : 0 }, { xPercent: rtl ? 0 : -50, duration: +(m.dataset.speed || 28), ease: 'none', repeat: -1 });
-    ScrollTrigger.create({ trigger: m, start: 'top bottom', end: 'bottom top', onUpdate: s => { tween.timeScale(1 + Math.min(Math.abs(s.getVelocity()) / 600, 3)); } });
+    // Works on phones (≤600): the strip runs 1.6× faster (it felt slow on a small screen)
+    const base = () => (innerWidth <= 600 && document.body.classList.contains('page-works')) ? 1.6 : 1;
+    tween.timeScale(base());
+    ScrollTrigger.create({ trigger: m, start: 'top bottom', end: 'bottom top', onUpdate: s => { tween.timeScale(base() * (1 + Math.min(Math.abs(s.getVelocity()) / 600, 3))); } });
     if (reduce) tween.pause();
   });
 
