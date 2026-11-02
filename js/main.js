@@ -629,6 +629,16 @@
       if (top(last) !== top(prev)) { const br = document.createElement('br'); br.className = 'you-br'; prev.before(br); }
     });
   };
+  // About "I spent over ten years communicating without relying on words." (every width): never leave one word alone on the last line
+  const fixStory = () => {
+    const h = [...document.querySelectorAll('.page-about h2')].find(x => /I spent over/.test(x.textContent)); if (!h) return;
+    h.querySelectorAll('br.you-br').forEach(b => b.remove());
+    const ws = [...h.querySelectorAll('.w')]; if (ws.length < 3) return;
+    const top = e => Math.round(e.getBoundingClientRect().top);
+    const last = ws[ws.length - 1], prev = ws[ws.length - 2];
+    if (top(last) !== top(prev)) { const br = document.createElement('br'); br.className = 'you-br'; prev.before(br); }
+  };
+  fixStory(); addEventListener('resize', fixStory); document.fonts && document.fonts.ready.then(fixStory);
   fixYou(); addEventListener('resize', fixYou); document.fonts && document.fonts.ready.then(fixYou);
   fitSideFacts(); addEventListener('resize', fitSideFacts); document.fonts && document.fonts.ready.then(fitSideFacts);
   // "why?" no longer needs nudging: at 601–900 it is pinned to the heading's top-right (CSS)
@@ -714,6 +724,11 @@
   if (ctl) {
     if (reduce) ctl.classList.add('on');
     else ScrollTrigger.create({ trigger: ctl, start: 'top 80%', once: true, onEnter: () => ctl.classList.add('on') });
+    // phones (≤600): each step's dot and text appear when that step scrolls into view (not all at once)
+    if (!reduce && innerWidth <= 600) {
+      ctl.classList.add('by-node');
+      $$('.ctl-node', ctl).forEach(n => ScrollTrigger.create({ trigger: n, start: 'top 80%', once: true, onEnter: () => n.classList.add('on') }));
+    }
   }
   // dots keep pulsing only while the timeline is on screen
   if (ctl && !reduce) new IntersectionObserver(es => es.forEach(e => ctl.classList.toggle('live', e.isIntersecting))).observe(ctl);
@@ -740,11 +755,39 @@
     });
     timers.push(setTimeout(() => { running = false; }, start + tiles.length * 70 + ON));
   };
+  // phones (≤600): each tile pops in and shows its colour when it scrolls into view (not the whole grid at once)
+  if (innerWidth <= 600 && !reduce) {
+    t.classList.add('by-tile');
+    const tio = new IntersectionObserver(es => es.forEach(e => {
+      const x = e.target, lag = 0; // tiles side by side light together
+      if (e.isIntersecting) {
+        x.classList.add('pop');
+        clearTimeout(x._lt1); clearTimeout(x._lt2);
+        x._lt1 = setTimeout(() => { if (!x.matches(':hover')) x.classList.add('lit'); }, lag + 150);
+        x._lt2 = setTimeout(() => x.classList.remove('lit'), lag + 150 + 900);
+      } else { clearTimeout(x._lt1); clearTimeout(x._lt2); x.classList.remove('lit'); }
+    }), { threshold: .6 });
+    tiles.forEach(x => tio.observe(x));
+    return;
+  }
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { t.classList.add('live'); flash(first ? 0 : 100); first = false; }
     else stop();
   }), { threshold: .35 });
   io.observe(t);
+})();
+/* About Track record tags, phones (≤600): a tag that wraps to 2 lines hugs its longest line (text stays left-aligned, no wide empty space on the right) */
+(() => {
+  const tags = [...document.querySelectorAll('.page-about .ab-app .tag')]; if (!tags.length) return;
+  const fit = () => tags.forEach(t => {
+    t.style.width = '';
+    if (innerWidth > 600) return;
+    const r = document.createRange(); r.selectNodeContents(t);
+    const rs = [...r.getClientRects()].filter(b => b.width > 1); if (rs.length < 2) return;
+    const c = getComputedStyle(t);
+    t.style.width = Math.ceil(Math.max(...rs.map(b => b.width)) + parseFloat(c.paddingLeft) + parseFloat(c.paddingRight) + parseFloat(c.borderLeftWidth) + parseFloat(c.borderRightWidth) + 1) + 'px';
+  });
+  fit(); addEventListener('resize', fit); document.fonts && document.fonts.ready.then(fit);
 })();
 /* TEMP: viewport size badge (bottom-left) — remove before launch */
 (() => {

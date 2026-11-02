@@ -2307,3 +2307,46 @@ p{margin:0}
 }
 /* Works ≤600: filter buttons → line above 01 20px closer (64 → 44) */
 @media (max-width:600px){.page-works .filters:not(#_):not(#__){margin-bottom:44px}}
+/* About "My story" H2, every width: no forced line breaks — flows left-aligned (a lone last word is avoided in JS) */
+.page-about .sec-head h2 br:not(.you-br){display:none}
+/* About ≤600: My story H2 → name → place spaced like Home's About me (22px / 8px) */
+@media (max-width:600px){.page-about .ab-sign:not(#_):not(#__){margin-top:-10px;gap:8px;row-gap:8px}}
+/* Home ≤600: About me name line spacing to match… (kept) — About ≤600: My story name line spacing 1.25 like Home's About me name; About FV H1 line spacing 1.15 */
+@media (max-width:600px){
+  .page-about .ab-sign-name:not(#_):not(#__):not(#___){line-height:1.25}
+  .page-about .phero h1:not(#_):not(#__):not(#___){line-height:1.15}
+}
+/* About stat band: the white fill rises on the same timing as Home's rolling digits (starts .3s, +.18s each, 1.6s) — so it plays after each box has faded in */
+.page-about .statband .fillnum .f:not(#_){transition-duration:1.6s}
+.page-about .statband.on .stat:nth-child(1) .fillnum .f:not(#_){transition-delay:.3s}
+.page-about .statband.on .stat:nth-child(2) .fillnum .f:not(#_){transition-delay:.48s}
+.page-about .statband.on .stat:nth-child(3) .fillnum .f:not(#_){transition-delay:.66s}
+.page-about .statband.on .stat:nth-child(4) .fillnum .f:not(#_){transition-delay:.84s}
+/* About ≤600: My story H2 → name visually 14px like Home's About me (box 22 → 24) */
+@media (max-width:600px){.page-about .ab-sign:not(#_):not(#__):not(#___){margin-top:-8px}}
+/* About ≤600: My story — 36px under "Massachusetts/Rhode Island, USA" to the gold line, and the same 36px from the line to "What you get…" */
+@media (max-width:600px){
+  .page-about .sec-head:has(.ab-sign):not(#_):not(#__){margin-bottom:27px}
+  .page-about .ab-quote:not(#_):not(#__){padding-top:28px}
+}
+/* About ≤600: the two photos under "What you get…" 1.3× larger; Samurai Cook 40px lower so only the corners overlap */
+@media (max-width:600px){
+  .page-about .ab-pops:not(#_):not(#__){aspect-ratio:auto;height:0;padding-bottom:calc(98% + 6px)} /* height from the box width (padding % = width) */
+  .page-about .ab-pops img:not(#_):not(#__){width:65%}
+  .page-about .ab-pops .p1:not(#_):not(#__){top:0;margin-top:3.3%}
+  .page-about .ab-pops .p2:not(#_):not(#__){top:-24px;margin-top:51%} /* just the corners overlap */
+}
+/* About Career, phones (≤600): steps appear one by one as they scroll in — dot fills and starts pulsing only when its step is on screen */
+@media (max-width:600px){
+  .ctl.by-node .ctl-node:not(#_){opacity:0;transform:translateY(10px);transition-delay:0s}
+  .ctl.by-node .ctl-node:not(#_) i{background:var(--ink);box-shadow:none;transition-delay:0s}
+  .ctl.by-node .ctl-node:not(#_) i::after{animation:none}
+  .ctl.by-node .ctl-node.on:not(#_){opacity:1;transform:none}
+  .ctl.by-node .ctl-node.on:not(#_) i{background:var(--gold);box-shadow:0 0 0 6px rgba(201,168,106,.14);transition-delay:.15s}
+  .ctl.by-node .ctl-node.on:not(#_) i::after{animation:ctlPulse 2.6s cubic-bezier(.2,.6,.3,1) infinite}
+  .ctl.by-node:not(.live) .ctl-node.on:not(#_) i::after{animation-play-state:paused}
+}
+/* About Tools, phones (≤600): tiles pop in one by one as they scroll into view */
+@media (max-width:600px){.page-about .ab-tools.by-tile .tool.pop{animation:tlPop .6s cubic-bezier(.34,1.7,.5,1) forwards}}
+/* About ≤600: Track record "Results in Japan" card — tag text centred in the pill (the U.S. card stays left-aligned) */
+@media (max-width:600px){.page-about .ab-app:has(> h3):nth-child(2) .tag:not(#_):not(#__){text-align:center}}
