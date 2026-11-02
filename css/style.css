@@ -2214,3 +2214,8 @@ p{margin:0}
 @media (max-width:600px){.page-home .pillar:not(#_):not(#__){padding-left:31px;padding-right:31px}.page-home .pillar p:not(#_):not(#__){margin-top:5px}}
 /* Home ≤600: "See all services" 20px closer to the H2 */
 @media (max-width:600px){.page-home .srv-link:not(#_):not(#__){transform:translateY(4px)}}
+/* Home ≤600: What I do rows 5px more side padding (10 → 15); Selected work H2 sized so "Designed to perform." fits on one line (max 38px) */
+@media (max-width:600px){
+  .srow:not(#_):not(#__){padding-left:15px;padding-right:15px}
+  .page-home .hworks .h-2:not(#_):not(#__):not(#___):not(#____){font-size:min(38px,calc((100vw - 48px) * .104))}
+}
