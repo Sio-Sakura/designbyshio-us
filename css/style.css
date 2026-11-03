@@ -2427,3 +2427,17 @@ p{margin:0}
 .page-works .lightbox .bar button:not(#_):not(#__){flex-shrink:0}
 /* Works lightbox: first line of the project name sits on the same line as CLOSE (long names wrap downward) */
 .page-works .lightbox .bar:not(#_):not(#__){align-items:baseline}
+/* ≤900: the closed contact layer can't be swiped sideways/down (iPhone could drag the hidden form halfway in) */
+@media (max-width:900px){.contact:not(#_){overflow-x:hidden}.contact:not(.open):not(#_){overflow:hidden}}
+/* Services ≤1100: How it works — the step title sits to the right of the 01–05 circle (not below it); the text stays below */
+@media (max-width:1100px){
+  .page-services .process .step:not(#_):not(#__){display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:center}
+  .page-services .process .step .dotn:not(#_):not(#__){margin-bottom:0}
+  .page-services .process .step h3:not(#_):not(#__){margin-bottom:0;line-height:1.25}
+  .page-services .process .step p:not(#_):not(#__){grid-column:1/-1;margin-top:12px;align-self:start}
+}
+/* Services 601–1100 (2 columns): titles and texts in the same row line up even when one title wraps to 2 lines */
+@media (min-width:601px) and (max-width:1100px){
+  .page-services .process .step:not(#_):not(#__){grid-row:span 2;grid-template-rows:subgrid;row-gap:12px}
+  .page-services .process .step p:not(#_):not(#__){margin-top:0}
+}
